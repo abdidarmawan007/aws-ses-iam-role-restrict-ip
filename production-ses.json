@@ -1,0 +1,23 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "VisualEditor0",
+            "Effect": "Allow",
+            "Action": [
+                "ses:SendEmail",
+                "ses:SendTemplatedEmail", 
+                "ses:SendRawEmail"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "ForAnyValue:IpAddress": {
+                    "aws:SourceIp": [
+                        "11.11.11.11/32",
+                        "22.22.22.22/32"
+                    ]
+                }
+            }
+        }
+    ]
+}
